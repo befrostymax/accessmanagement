@@ -1,0 +1,20 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          ping:
+            client-name: Login with the Ping Identity Server
+            client-id: <See CLIENT ID in your created Ping Application> [1]
+            client-secret: <See CLIENT SECRET in your created Ping Application> [2]
+            # We use the classical approach with authorization_code here, which is configured in PING Identity [3]
+            authorization-grant-type: authorization_code
+            # The redirect URI configured in your PING Application [4] - You can create YAML profiles and the link might differ per stage / setup
+            # In this example we use localhost with a self defined callback path
+            redirect-uri: http://localhost:8080/login/oauth2/code/ping
+            #The OIDC Scopes. openid is always mandatory. I have chosen profile for this tutorial. The scope needs to be configured in PING Identity [5]
+            scope: openid, profile
+        provider:
+          ping:
+            issuer-uri: https://auth.pingone.eu/<Your Ping ISSUER ID>/as
+            #The issuer uri can be copied from you Ping Identity Application Configuration [6]
