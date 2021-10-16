@@ -1,4 +1,4 @@
-# Acces Management - Code Samples
+# Access Management - Code Samples
 
 The idea of this repository is that you have a quick understanding of how you can connect to a common Access Management Software in Java (Spring) avoiding fancy plugins so that you can get a plain/raw understanding how to get started.
 
